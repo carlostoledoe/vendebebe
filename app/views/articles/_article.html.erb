@@ -1,17 +1,10 @@
 <div id="<%= dom_id article %>">
-  <p>
-    <strong>Name:</strong>
-    <%= article.name %>
-  </p>
-
-  <p>
-    <strong>Detail:</strong>
-    <%= article.detail %>
-  </p>
-
-  <p>
-    <strong>Brand:</strong>
-    <%= article.brand_id %>
-  </p>
-
+  <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title"><%= article.name %></h5>
+      <h6 class="card-subtitle mb-2 text-muted">Marca: <%= article.brand_id %></h6>
+      <p class="card-text"><%= article.detail %></p>
+    </div>
+  </div>
 </div>
+
