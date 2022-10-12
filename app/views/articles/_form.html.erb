@@ -23,7 +23,7 @@
 
   <div>
     <%= form.label :brand_id, style: "display: block" %>
-    <%= form.text_field :brand_id %>
+    <%= form.collection_select :brand_id, @brand, :id, :name %>
   </div>
 
   <div>
