@@ -1,6 +1,9 @@
 <p style="color: green"><%= notice %></p>
 
 <h1>Brands</h1>
+<%= link_to "Nueva marca", new_brand_path, class: "btn btn-primary" %>
+<br>
+<br>
 
 <div id="brands">
   <% @brands.each do |brand| %>
@@ -11,4 +14,4 @@
   <% end %>
 </div>
 
-<%= link_to "New brand", new_brand_path %>
+<%#= link_to "New brand", new_brand_path %>
