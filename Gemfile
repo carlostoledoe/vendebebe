@@ -68,3 +68,4 @@ group :development do
 end
 
 gem 'dotenv-rails', groups: [:development, :test]
+gem 'devise'
