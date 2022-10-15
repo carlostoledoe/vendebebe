@@ -10,20 +10,16 @@
           <a class="nav-link active" aria-current="page" href="/">Inicio</a>
         </li>
         <li class="nav-item">
-          <%# <a class="nav-link" href="#">Artículos</a> %>
-          <li> <%= link_to "Artículos", articles_path, class: "nav-link" %> </li>
-        </li>
-        <li class="nav-item">
           <%# <a class="nav-link" href="#">Marcas</a> %>
           <%= link_to "Marcas", brands_path, class: "nav-link" %> </li>
         </li>
       </ul>
       <div>
         <% if user_signed_in? %>
-          <%= button_to( "Sign Out", destroy_user_session_path, method: :delete, class: "btn btn-danger btn-sm mb-1" ) %>
+          <%= button_to( "Salir", destroy_user_session_path, method: :delete, class: "btn btn-danger btn-sm mb-1" ) %>
         <% else %>
-          <%= link_to "Sign up", new_user_registration_path, class: "btn btn-primary btn-sm mb-1" %>
-          <%= link_to "Log in", new_user_session_path, class: "btn btn-secondary btn-sm mb-1"  %>
+          <%= link_to "Registrarse", new_user_registration_path, class: "btn btn-warning btn-sm mb-1" %>
+          <%= link_to "Ingresar", new_user_session_path, class: "btn btn-primary btn-sm mb-1"  %>
         <% end %>
       </div>
     </div>

@@ -1,6 +1,6 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Brands</h1>
+<h1>Nuestras Marcas</h1>
 <% if user_signed_in? %>
   <%= link_to "Nueva marca", new_brand_path, class: "btn btn-primary" %>
 <% end %>
@@ -9,9 +9,6 @@
 <div id="brands">
   <% @brands.each do |brand| %>
     <%= render brand %>
-    <p>
-      <%= link_to "Show this brand", brand %>
-    </p>
   <% end %>
 </div>
 
