@@ -1,8 +1,9 @@
 <p style="color: green"><%= notice %></p>
 
 <h1>Brands</h1>
-<%= link_to "Nueva marca", new_brand_path, class: "btn btn-primary" %>
-<br>
+<% if user_signed_in? %>
+  <%= link_to "Nueva marca", new_brand_path, class: "btn btn-primary" %>
+<% end %>
 <br>
 
 <div id="brands">
