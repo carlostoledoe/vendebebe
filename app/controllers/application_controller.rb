@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
     end
   end  
 
-  def permisos?
+  def permisos_sobre_articulos?
     if !user_signed_in?
       redirect_to articles_path, notice: "No tienes permisos para esta acción"
     else 
