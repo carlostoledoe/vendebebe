@@ -5,7 +5,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
         :recoverable, :rememberable, :validatable
 
-  enum rol: [:vendedor, :admin]
+  enum rol: [:vendedor, :admin, :visitante]
+
 
   after_initialize do
     if self.new_record?
