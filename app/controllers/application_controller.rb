@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   def permisos_sobre_marcas?
     if user_signed_in?
       if !current_user.admin?
-        redirect_to brands_path, notice: "Debes ser administrador para esta acción sobre las marcas"
+        redirect_to brands_path, notice: "Debes ser administrador para realizar acciones sobre las marcas"
       end
     else
       redirect_to brands_path, notice: "No tienes permisos para esta acción"
@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
     else 
       if @article.user_id == current_user.id
       else
-        redirect_to articles_path, notice: "No eres el usuario de este artículo"
+        redirect_to articles_path, notice: "No puedes editar artículos que no son tuyos"
       end
     end
   end
