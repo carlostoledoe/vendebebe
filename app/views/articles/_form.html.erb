@@ -28,8 +28,9 @@
 
 
   <div>
-    <%= form.label :user_id, style: "display: block" %>
-    <%= form.text_field :user_id %>
+    <% @var = current_user.try(:id) %>
+    <% form.label :user_id, style: "display: block" %>
+    <%= form.hidden_field :user_id, value: @var %>
   </div>
 
   <div>
