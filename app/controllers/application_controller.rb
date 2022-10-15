@@ -8,5 +8,5 @@ class ApplicationController < ActionController::Base
     else
       redirect_to brands_path, notice: "No tienes permisos para esta acción"
     end
-  end
+  end  
 end
