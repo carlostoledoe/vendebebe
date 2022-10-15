@@ -1,6 +1,6 @@
 class BrandsController < ApplicationController
   before_action :set_brand, only: %i[ show edit update destroy ]
-  before_action :tengo_permisos?, except: [:index, :show]
+  before_action :permisos_sobre_marcas?, except: [:index, :show]
 
   # GET /brands or /brands.json
   def index

@@ -1,9 +1,9 @@
 class ApplicationController < ActionController::Base
 
-  def tengo_permisos?
+  def permisos_sobre_marcas?
     if user_signed_in?
       if !current_user.admin?
-        redirect_to brands_path, notice: "Debes ser administrador"
+        redirect_to brands_path, notice: "Debes ser administrador para esta acción sobre las marcas"
       end
     else
       redirect_to brands_path, notice: "No tienes permisos para esta acción"
