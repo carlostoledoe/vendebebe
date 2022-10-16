@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
       redirect_to articles_path, notice: "No tienes permisos para esta acción"
     else 
       @uu = User.find(current_user.id)
-      if @uu.rol = 1
+      if @uu.rol == 1
       else
         if @article.user_id == current_user.id
         else
