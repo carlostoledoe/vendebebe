@@ -14,9 +14,13 @@ class ApplicationController < ActionController::Base
     if !user_signed_in?
       redirect_to articles_path, notice: "No tienes permisos para esta acción"
     else 
-      if @article.user_id == current_user.id
+      @uu = User.find(current_user.id)
+      if @uu.rol = 1
       else
-        redirect_to articles_path, notice: "No puedes editar artículos que no son tuyos"
+        if @article.user_id == current_user.id
+        else
+          redirect_to articles_path, notice: "No puedes editar artículos que no son tuyos"
+        end
       end
     end
   end
