@@ -15,6 +15,7 @@ class ArticlesController < ApplicationController
   def new
     @article = Article.new
     @brand = Brand.all
+    @article.tags.build
   end
 
   # GET /articles/1/edit
@@ -68,6 +69,6 @@ class ArticlesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def article_params
-      params.require(:article).permit(:name, :detail, :brand_id, :user_id)
+      params.require(:article).permit(:name, :detail, :brand_id, :user_id, tags_attributes: [:id, :name, :_destroy])
     end
 end

@@ -34,6 +34,17 @@
   </div>
 
   <div>
+    <%= form.fields_for :tags do |t| %>
+      <%= render "tag_fields", :f => t %>
+    <% end %>
+      
+    <div>
+      <br>
+      <%= link_to_add_association "Nuevo tag", form, :tags %>
+    </div>
+  </div>
+
+  <div>
     <%= form.submit %>
   </div>
 <% end %>
