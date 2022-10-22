@@ -6,12 +6,12 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
         :recoverable, :rememberable, :validatable
 
-  enum rol: [:vendedor, :admin, :visitante]
+  enum rol: [:vendedor, :admin, :comprador]
 
 
   after_initialize do
     if self.new_record?
-      self.rol ||= :vendedor
+      self.rol ||= :comprador
     end
   end
 
