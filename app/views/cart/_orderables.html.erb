@@ -3,17 +3,17 @@
 
   <div id="<%= "cart-#{article.id}" %>">
     <div class="row">
-      <div class="col-3">
+      <div class="col-12 col-sm-12 col-lg-2">
         <strong>Artículo:</strong>
         <%= article.name %>
       </div>
 
-      <div class="col-2">
+      <div class="col-12 col-sm-12 col-lg-2">
         <strong>Precio unitario:</strong>
         <%= article.price %>
       </div>
 
-      <div class="col-4">
+      <div class="col-10 col-sm-12 col-lg-4">
         <%= form_with(url: cart_add_path) do |f| %>
           <%= f.hidden_field :id, value: article.id %>
           <%= f.number_field :quantity, value: orderable.quantity, min:0 %>
@@ -21,18 +21,18 @@
         <% end %>
       </div>
 
-      <div class="col-1">
+      <div class="col-12 col-sm-12 col-lg-2">
         <%= form_with(url: cart_remove_path) do |f| %>
           <%= f.hidden_field :id, value: orderable.id %>
           <%= f.submit "Quitar" %>
         <% end %>
       </div>
 
-      <div class="col-2">
+      <div class="col-12 col-sm-12 col-lg-2">
         <strong>Total:</strong>
         <%= orderable.total %>
       </div>
-
     </div>
+    <br>
   </div>
 <% end %>
