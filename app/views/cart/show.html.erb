@@ -1,0 +1,13 @@
+<h1>Tu Carrito</h1>
+<p style="color: green"><%= notice %></p>
+
+<% if @cart.orderables.count > 0 %>
+  <%= render "cart/orderables" %>
+
+  <p class="lead mt-3" >Total final: $<%= @cart.total %></p>
+
+<% else %>
+  <p>Tu carrito está vacio</p>
+<% end %>
+
+<%= link_to "Volver a artículos", articles_path %>

@@ -26,6 +26,10 @@
     <%= form.collection_select :brand_id, @brand, :id, :name %>
   </div>
 
+  <div>
+    <%= form.label :price, style: "display: block" %>
+    <%= form.text_area :price %>
+  </div>
 
   <div>
     <% @var = current_user.try(:id) %>

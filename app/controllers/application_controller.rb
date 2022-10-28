@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  before_action :initialize_cart
 
   def permisos_sobre_marcas?
     if user_signed_in?
@@ -22,6 +23,15 @@ class ApplicationController < ActionController::Base
           redirect_to articles_path, notice: "No puedes editar artículos que no son tuyos"
         end
       end
+    end
+  end
+
+  def initialize_cart
+    @cart ||= Cart.find_by(id: session[:cart_id])
+
+    if @cart.nil?
+      @cart = Cart.create
+      session[:cart_id] = @cart.id
     end
   end
 end
