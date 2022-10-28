@@ -4,7 +4,11 @@ class ArticlesController < ApplicationController
   
   # GET /articles or /articles.json
   def index
-    @articles = Article.all
+    if params[:tag]
+      @articles = Tag.find_by(name: "#{params[:tag]}").articles
+    else
+      @articles = Article.all
+    end
   end
 
   # GET /articles/1 or /articles/1.json
@@ -16,6 +20,7 @@ class ArticlesController < ApplicationController
     @article = Article.new
     @brand = Brand.all
     @article.tags.build
+    @tags = Tag.all
   end
 
   # GET /articles/1/edit
@@ -69,6 +74,6 @@ class ArticlesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def article_params
-      params.require(:article).permit(:name, :detail, :price, :brand_id, :user_id, tags_attributes: [:id, :name, :_destroy])
+      params.require(:article).permit(:name, :detail, :price, :brand_id, :user_id, tag_ids: [], tags_attributes: [:id, :name, :_destroy])
     end
 end

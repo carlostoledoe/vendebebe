@@ -28,7 +28,7 @@
 
   <div>
     <%= form.label :price, style: "display: block" %>
-    <%= form.text_area :price %>
+    <%= form.text_field :price %>
   </div>
 
   <div>
@@ -38,14 +38,8 @@
   </div>
 
   <div>
-    <%= form.fields_for :tags do |t| %>
-      <%= render "tag_fields", :f => t %>
-    <% end %>
-      
-    <div>
-      <br>
-      <%= link_to_add_association "Nuevo tag", form, :tags %>
-    </div>
+    <%= form.label :tags, style: "display: block"  %>
+    <%= form.collection_check_boxes :tag_ids, @tags, :id, :name  %>
   </div>
 
   <div>
