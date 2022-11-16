@@ -2,6 +2,13 @@
   <% @marca_actual = Brand.find(article.brand_id) %>
 
   <div class="card mb-2" style="width: 15rem;">
+
+    <% if article.image.attached? %> <%# Imágen Portada %>
+      <%= link_to (image_tag article.image, class: "card-img-top"), article %> 
+    <% else %>
+      <%= link_to (image_tag "ejemplo.jpg", class: "card-img-top"), article %> 
+    <% end %>
+
     <div class="card-body">
       <h5 class="card-title"><%= article.name %></h5>
       <h6 class="card-subtitle mb-2 text-muted">Marca: <%= @marca_actual.name %></h6>

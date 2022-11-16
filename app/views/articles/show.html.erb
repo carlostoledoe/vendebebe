@@ -1,6 +1,61 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @article %>
+<% render @article %>
+
+<div class="card mb-3" style="max-width: 50rem;">
+  <div class="row g-0">
+    <div class="col-md-4">
+
+      <% if @article.image.attached? %> <%# Imágen Portada %>
+        <%= link_to (image_tag @article.image, class: "img-fluid rounded-start"), @article %> 
+      <% else %>
+        <%= link_to (image_tag "ejemplo.jpg", class: "img-fluid rounded-start"), @article %> 
+      <% end %>
+
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title"><%= @article.name %></h5>
+        <h6 class="card-subtitle mb-2 text-muted">Marca: <%= @marca_actual.name %></h6>
+        <p class="card-text"><%= @article.detail %></p>
+        <p class="card-text">$ <%= @article.price %></p>
+        <p class="card-subtitle mb-2 text-muted">Vendedor id: <%= @article.user_id %></p>
+        <p class="card-subtitle mb-2">Etiquetas:</p>
+
+          <% if @article.tags.any? %>
+            <ul> 
+              <% @article.tags.each do |q| %>
+                <li class="text-muted" >
+                  <%= q.name %>
+                </li>
+              <% end %>
+            </ul>
+          <% else %>
+            <p class="text-muted" >Sin etiquetas</p>
+          <% end %>
+
+      <span>Cantidad a comprar:</span>
+      <%= form_with(url: cart_add_path) do |f| %>
+        <%= f.hidden_field :id, value: @article.id %>
+        <%= f.number_field :quantity, class: "input-group input-group-sm mb-1", style: "max-width: 4rem;",  value: 0, min:1 %>
+        <%= f.submit "Agregar al Carrito", class: "btn btn-primary btn-sm mb-3" %>
+      <% end %>
+
+        <%= link_to "Ver detalles", @article, class: "btn btn-outline-primary btn-sm mb-1" %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% if @article.photos.attached? %> <%# Imágenes adjuntas %>
+  <div class="row">
+    <% @article.photos.each do |foto| %>
+      <div class="col">
+          <%= link_to image_tag(foto, class: "card col-12"), foto %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
 
 <div>
   <% if user_signed_in?  %>

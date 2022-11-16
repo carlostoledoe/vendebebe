@@ -25,6 +25,7 @@ class ArticlesController < ApplicationController
 
   # GET /articles/1/edit
   def edit
+    @tags = Tag.all
   end
 
   # POST /articles or /articles.json
@@ -44,6 +45,7 @@ class ArticlesController < ApplicationController
 
   # PATCH/PUT /articles/1 or /articles/1.json
   def update
+    @tags = Tag.all
     respond_to do |format|
       if @article.update(article_params)
         format.html { redirect_to article_url(@article), notice: "Article was successfully updated." }
@@ -74,6 +76,6 @@ class ArticlesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def article_params
-      params.require(:article).permit(:name, :detail, :price, :brand_id, :user_id, tag_ids: [], tags_attributes: [:id, :name, :_destroy])
+      params.require(:article).permit(:name, :detail, :price, :image, :brand_id, :user_id, tag_ids: [], tags_attributes: [:id, :name, :_destroy], photos: [])
     end
 end
