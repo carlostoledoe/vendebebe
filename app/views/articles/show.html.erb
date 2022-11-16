@@ -59,9 +59,9 @@
 
 <div>
   <% if user_signed_in?  %>
-    <%= link_to "Edit this article", edit_article_path(@article) %> |
-    <%= button_to "Destroy this article", @article, method: :delete %>
+    <%= link_to "Editar este producto", edit_article_path(@article) %> |
+    <%= link_to  "Eliminar este producto", @article, method: :delete %>
   <% end %>
   <br>
-  <%= link_to "Volver a artículos", articles_path %>
+  <%= link_to "Volver a artículos", articles_path, class: "btn btn-secondary mt-2 btn-sm" %>
 </div>

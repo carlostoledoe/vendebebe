@@ -32,7 +32,7 @@
     <span>Cantidad a comprar:</span>
     <%= form_with(url: cart_add_path) do |f| %>
       <%= f.hidden_field :id, value: article.id %>
-      <%= f.number_field :quantity, class: "input-group input-group-sm mb-1",  value: 0, min:1 %>
+      <%= f.number_field :quantity, style: "max-width: 4rem;", class: "input-group input-group-sm mb-1",  value: 0, min:1 %>
       <%= f.submit "Agregar al Carrito", class: "btn btn-primary btn-sm mb-3" %>
     <% end %>
 

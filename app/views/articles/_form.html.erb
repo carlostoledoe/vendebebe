@@ -12,22 +12,22 @@
   <% end %>
 
   <div>
-    <%= form.label :name, style: "display: block" %>
+    <%= form.label :name, "Nombre:", style: "display: block" %>
     <%= form.text_field :name %>
   </div>
 
   <div>
-    <%= form.label :detail, style: "display: block" %>
+    <%= form.label :detail, "Detalles:", class: "mt-2", style: "display: block" %>
     <%= form.text_area :detail %>
   </div>
 
   <div>
-    <%= form.label :brand_id, style: "display: block" %>
+    <%= form.label :brand_id, "Marca:", class: "mt-2", style: "display: block" %>
     <%= form.collection_select :brand_id, @brand, :id, :name %>
   </div>
 
   <div>
-    <%= form.label :price, style: "display: block" %>
+    <%= form.label :price, "Precio:", class: "mt-2", style: "display: block" %>
     <%= form.text_field :price %>
   </div>
 
@@ -38,12 +38,12 @@
   </div>
 
   <div>
-    <%= form.label :tags, style: "display: block"  %>
+    <%= form.label :tags, "Categorías:", class: "mt-3", style: "display: block"  %>
     <%= form.collection_check_boxes :tag_ids, @tags, :id, :name  %>
   </div>
 
     <div>
-    <%= form.label :image, "Portada:", style: "display: block", class: "mt-4" %>
+    <%= form.label :image, "Foto de portada:", style: "display: block", class: "mt-4" %>
     <%= form.file_field :image, accept:'image/jpg,image/png,image/jpeg', style: "display: block", class: "mt-1", required: true %>
   </div>
 
@@ -53,6 +53,6 @@
   </div>
 
   <div>
-    <%= form.submit %>
+    <%= form.submit "Publicar", class: "btn btn-primary mt-4" %>
   </div>
 <% end %>
