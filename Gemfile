@@ -71,3 +71,5 @@ gem 'dotenv-rails', groups: [:development, :test]
 gem 'devise'
 gem "cocoon"
 gem "aws-sdk-s3", require: false
+
+gem "minitest-rails", "~> 7.0.0"
